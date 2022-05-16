@@ -1,0 +1,64 @@
+<section class="property-binding">
+  <article>
+    <h3>Interporlação</h3>
+    <p>{{ url }}</p>
+    <p>1 + 1 não é {{ 1 + 1 + getValor() }}</p>
+    <p>Curso de Angular = {{ curso && getCurtirCurso() }}</p>
+  </article>
+
+  <article>
+    <img src="{{ urlImagem }}" />
+    <img [src]="urlImagem" />
+  </article>
+</section>
+
+<section>
+  <article class="class-binding">
+    <h3>Class e Style Binding</h3>
+    <div>
+      Selecione uma classe:
+      <select #classe (change)="(0)">
+        <option value="alert-primary">Informação</option>
+        <option value="alert-secondary">Aviso</option>
+        <option value="alert-success">Sucesso</option>
+        <option value="alert-danger">Alerta</option>
+      </select>
+      <br /><br />
+
+      <div class="alert {{ classe.value }}">
+        Texto mudará conforme o valor selecionado.
+      </div>
+
+      <div
+        class="alert alert-primary"
+        role="alert"
+        [class.alert-primary]="classe.value == 'alert-primary'"
+      >
+        Informação
+      </div>
+      <div
+        class="alert"
+        role="alert"
+        [class.alert-secondary]="classe.value == 'alert-secondary'"
+      >
+        Aviso
+      </div>
+
+      <div
+        class="alert"
+        role="alert"
+        [class.alert-success]="classe.value == 'alert-success'"
+      >
+        Sucesso
+      </div>
+
+      <div
+        class="alert"
+        role="alert"
+        [class.alert-danger]="classe.value == 'alert-danger'"
+      >
+        Alerta
+      </div>
+    </div>
+  </article>
+</section>

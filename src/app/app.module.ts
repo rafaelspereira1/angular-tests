@@ -7,10 +7,12 @@ import { AppComponent } from './app.component';
 import { TestComponent } from './test/test.component';
 import { Teste01Component } from './teste01/teste01.component';
 import { CursosModule } from './cursos/cursos.module';
+import { DataBindingComponent } from './data-binding/data-binding.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
-  declarations: [AppComponent, TestComponent, Teste01Component],
-  imports: [BrowserModule, AppRoutingModule, CursosModule],
+  declarations: [AppComponent, TestComponent, Teste01Component, DataBindingComponent],
+  imports: [BrowserModule, AppRoutingModule, CursosModule, NgbModule],
   providers: [],
   bootstrap: [AppComponent],
 })
