@@ -1,4 +1,4 @@
-<section class="property-binding">
+<!-- <section class="property-binding">
   <article>
     <h3>Interporlação</h3>
     <p>{{ url }}</p>
@@ -27,6 +27,13 @@
 
       <div class="alert {{ classe.value }}">
         Texto mudará conforme o valor selecionado.
+      </div>
+
+      <div
+        class="alert alert-danger"
+        [style.display]="classe.value == 'alert-danger' ? 'block' : 'none'"
+      >
+        Esse texto só irá aparecer em caso de erro
       </div>
 
       <div
@@ -61,4 +68,52 @@
       </div>
     </div>
   </article>
+</section> -->
+
+<section class="event-binding">
+  <article>
+    <h3>Event Binding</h3>
+    <div>
+      <button (click)="clickBotao()" class="btn btn-primary">clique</button>
+    </div>
+    <br />
+    <input type="text" (keyup)="onKeyUp($event)" />
+    <br />
+    <p>O valor atual do input é: {{ valorAtual }}</p>
+    <br />
+    <span
+      (mouseover)="onMouseOverOut()"
+      (mouseout)="onMouseOverOut()"
+      [class.highlight]="mouseOver"
+    >
+      Passe o mouse em cima de mim</span
+    >
+  </article>
+  <article>
+    <h3>Two-way data binding</h3>
+    <input type="text" [(ngModel)]="nome" />
+
+    <p>Seu nome é {{ nome }}</p>
+  </article>
+
+  <article>
+    <h3>Two-way data binding com Objeto</h3>
+    <input type="text" [(ngModel)]="pessoa.nome" />
+    <input type="text" [(ngModel)]="pessoa.idade" />
+    <p>Olá meu nome é {{ pessoa.nome }} e tenho {{ pessoa.idade }} anos</p>
+  </article>
 </section>
+
+<hr />
+<section class="input-output-properties">
+  <article>
+    <h3>Input/Output Properties</h3>
+    <app-curso [nomeCurso]="nomeDoCurso"></app-curso>
+  </article>
+</section>
+
+<hr />
+<contador
+  [valorContador]="valorInicialContador"
+  (mudouValor)="onMudouValor($event)"
+></contador>
